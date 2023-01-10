@@ -1,7 +1,8 @@
 header {
  display: flex;
  justify-content: space-between;
- background-color: goldenrod; 
+ background-color: goldenrod;
+ height: 10vh;
 }
 
 body{
@@ -12,6 +13,7 @@ body{
 #headerLogo{
  margin-left: 2vw;
  width: 4vw;
+ margin-top: 1vh;
 }
 
 .extraLinks{
@@ -50,6 +52,11 @@ button{
  display: none;
 }
 
+#newGame-btn{
+ display: none;
+}
+
 footer{
  margin-top: 10vh;
+ font-size: 1vw;
 }

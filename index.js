@@ -25,6 +25,7 @@ if(sum <= 20){
  document.getElementById("extra-btn").style.display = 'block'
 }else if(sum === 21){
  message = "You've got Blackjack"
+ document.getElementById("newGame-btn").style.display = 'block'
 } else {
  message = "You're out of the game"
  document.getElementById("start-btn").style.display = 'none'
@@ -35,5 +36,6 @@ messageEl.textContent = message
 }
 
 function exitGame(){
- startGame()
+ // reload page code (!!) 
+ location.reload();
 }
