@@ -11,7 +11,7 @@
 <body>
 
  <header>
-   <img src="../images/bjLogo.png" alt="blackjackLogo" id="headerLogo">
+   <a href=""><img src="../images/bjLogo.png" alt="blackjackLogo" id="headerLogo"></a>
    <div class="extraLinks">
       <a href="#"><p>How to play</p></a>
       <a href="#"><p>Rules</p></a>
@@ -20,15 +20,22 @@
 
  <main>
   <h1><b>Blackjack</b></h1>
-  <h2 id="message-El">Want to play a round?</h2>
-  <h2 id="card-El">Cards:</h2>
-  <h2 id="sum-El">Sum:</h2>
+  <p id="message-El" class="pmain"> Want to play a round?</p>
+  <p id="card-El" class="pmain">Cards:</p>
+  <p id="sum-El" class="pmain">Sum:</p>
   <br>
-  <button onclick="startGame()">START GAME</button>
+  <button onclick="startGame()" id="start-btn">START GAME</button>
+  <div id="extra-btn">
+    <button id="new-El" onclick="newCard()">NEW CARD</button>
+  </div>
+  <div id="exit-btn">
+    <button onclick="exitGame()">EXIT</button>
+  </div>
+
   </main>
 
   <footer>
-    <p>made by: Micael Staeubli</p>
+    <p>made by: <br> Micael Staeubli</p>
   </footer>
 
   <script src="index.js"></script>

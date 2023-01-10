@@ -1,45 +1,39 @@
-let firstCard = 11
-let secondCard = 10
-let sum = firstCard + secondCard
-console.log(sum)
-
-let hasBlackjack = false
-let isAlive = true
+let firstCard = Math.floor(Math.random()*11)+1
+let secondCard = Math.floor(Math.random()*11)+1
+let cards = [firstCard, secondCard]
+let sum = cards.reduce((prev,curr)=>prev + curr, 0)
 let message = ""
-
 let messageEl = document.getElementById("message-El")
 let cardEl = document.getElementById("card-El")
 let sumEl = document.getElementById("sum-El")
 
+function newCard(){
+ let card =  Math.floor(Math.random()*11)+1
+ cards.push(card)
+ sum = cards.reduce((prev,curr)=>prev + curr, 0)
+ startGame()
+ document.getElementById("newCard").style.display = 'none'  
+}
+
 function startGame(){
-
-// first if...else-statements for Blackjack game 
-
-// conditions
-// if less than or equal to 20   -> "Do you want to draw a new card?"
-// else if exactly 21 -> "Blackjack"
-// else     -> "You're out of the game"
-
-cardEl.textContent = "Cards: " + firstCard + " " + secondCard 
+document.getElementById("start-btn").style.display = 'none'
+cardEl.textContent = "Cards: " + cards 
 sumEl.textContent = "Sum: " + sum
 
 if(sum <= 20){
  message = "Do you want to draw a new card?"
+ document.getElementById("extra-btn").style.display = 'block'
 }else if(sum === 21){
  message = "You've got Blackjack"
- hasBlackjack = true
 } else {
  message = "You're out of the game"
- isAlive = false
+ document.getElementById("start-btn").style.display = 'none'
+ document.getElementById("new-El").style.display = 'none'
+ document.getElementById("exit-btn").style.display = 'block'
+}
+messageEl.textContent = message
 }
 
-messageEl.textContent = message
-
-// add a has Blackjack variable
-console.log(hasBlackjack)
-// add a isAlive variable 
-console.log(isAlive)
-
-// boolean conditions (True/ False)
-// add a message variable
+function exitGame(){
+ startGame()
 }
