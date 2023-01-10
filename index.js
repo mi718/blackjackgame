@@ -17,6 +17,7 @@ function newCard(){
 
 function startGame(){
 document.getElementById("start-btn").style.display = 'none'
+document.getElementById("gameOptions").style.display = 'block'
 cardEl.textContent = "Cards: " + cards 
 sumEl.textContent = "Sum: " + sum
 
@@ -38,4 +39,8 @@ messageEl.textContent = message
 function exitGame(){
  // reload page code (!!) 
  location.reload();
+}
+
+function start(url) {
+ let windows = open(url);
 }

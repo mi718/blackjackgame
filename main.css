@@ -56,6 +56,29 @@ button{
  display: none;
 }
 
+
+#mainGame{
+ display: flex;
+ justify-content: space-between;
+ margin: 4vw;
+}
+
+.option{
+ background-color: goldenrod;
+ font-size: 2rem;
+ padding: 1vw;
+ width: 20rem;
+ border-radius: 10px;
+}
+
+#action-El{
+ background-color: rgba(218, 165, 32, 0.266);
+ padding: 4vw;
+ border-radius: 10px;
+ flex-grow: 1;
+ margin-left: 5vw;
+}
+
 footer{
  margin-top: 10vh;
  font-size: 1vw;
