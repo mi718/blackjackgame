@@ -26,6 +26,7 @@ if(sum <= 20){
  document.getElementById("extra-btn").style.display = 'block'
 }else if(sum === 21){
  message = "You've got Blackjack"
+ document.getElementById("extra-btn").style.display = 'none'
  document.getElementById("newGame-btn").style.display = 'block'
 } else {
  message = "You're out of the game"
@@ -44,3 +45,11 @@ function exitGame(){
 function start(url) {
  let windows = open(url);
 }
+
+// how do loops work ?
+//          START         FINISH   STEP SIZE
+// for (let coutn = 0; count < 11; count += 1){
+     // what to do....
+     // example: console.log(count)
+     //          age -= 1
+//}
