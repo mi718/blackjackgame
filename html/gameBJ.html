@@ -27,13 +27,14 @@
       <button class="option">Cash out</button>
       <p class="option" id="credits">Credit: 400$</p>
       <section class="option">
-        <p>Deaeler cards:</p>
-        <table id="dealerCard">
+        <p>Deaeler cards:</p> &nbsp; &nbsp;
+        <p id="dealerCard"> 0 , ? </p>
+        <!-- <table id="dealerCard"> 
           <tr>
             <td><img src="../deckOfCards/jack_of_clubs.png" alt="card" class="cardDesign" id="dealerCard1"></td>
             <td><img src="../images/designCards.jpg" alt="card" class="cardDesign" id="dealerCard2"></td>
           </tr>
-        </table>
+        </table>-->
       </section>
     </div>
     <div id="action-El">
@@ -41,11 +42,18 @@
     <p id="message-El" class="pmain"> Want to play a round?</p>
     <p id="card-El" class="pmain">Cards:</p>
     <p id="sum-El" class="pmain">Sum:</p>
+    <div id="secondCardDealerM">
+    <p class="pmain" style="font-family: Verdana, Geneva, Tahoma, sans-serif;" id="whatCard">Let's see what the dealer's <br> second card is</p>
+    <button><img src="../images/eyeLogo.png" alt="eyeSymbol" id="eye"></button>
     </div>
-    <br> coque was is it that si me llamas no esperas manana si cuando estas 
+    </div>
+    <br> 
     <button onclick="startGame()" id="start-btn">TAKE 2 CARDS</button>
     <div id="extra-btn">
-      <button id="new-El" onclick="newCard()">PICK CARD</button>
+      <button id="new-El" onclick="newCard()">HIT</button>
+      <br>
+      <br>
+      <button id="stand-EL" onclick="stand()">STAND</button>
     </div>
     <div id="exit-btn">
       <button onclick="exitGame()" id="exitPage">EXIT</button>

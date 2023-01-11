@@ -10,6 +10,10 @@ body{
  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+main{
+ margin-left: 10vw;
+ margin-right: 10vw;}
+
 #headerLogo{
  margin-left: 2vw;
  width: 4vw;
@@ -32,6 +36,11 @@ h1{
 .pmain{
  margin-top: 6vh;
  font-size: 3vw;
+}
+
+#secondCardDealerM{
+ display: none;
+ font-size: 2vw;
 }
 
 button{
@@ -74,12 +83,24 @@ button{
  border-radius: 10px;
 }
 
-table{
+#whatCard{
+ font-size: 2vw;
+}
+
+#eye{
+ width: 4vw;
+ height: 4vh;
+ padding: 20px;
+ background-color: goldenrod;
+ border-radius: 360%;
+}
+
+/* table{ 
  margin-left: auto;
  margin-right: auto;
  margin-top: auto;
  margin-bottom: auto;
-}
+}*/
 
 #dealerCard{
  display: none;

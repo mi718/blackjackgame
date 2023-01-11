@@ -76,15 +76,12 @@ const card_img = [
 
 console.log(card_img[Math.floor(Math.random()*52)])
 
-function randomcard_img(){
-     let selectCard = card_img[Math.floor(Math.random()*52)]
-     let firstDealerCard = document.getElementById("")
-}
-
 function startGame(){
 document.getElementById("start-btn").style.display = 'none'
 document.getElementById("gameOptions").style.display = 'block'
 document.getElementById("dealerCard").style.display = 'block'
+cardDealer()
+
 cardEl.textContent = "Cards: " + cards 
 sumEl.textContent = "Sum: " + sum 
 
@@ -98,10 +95,25 @@ if(sum <= 20){
 } else {
  message = "You're out of the game"
  document.getElementById("start-btn").style.display = 'none'
+ document.getElementById("stand-EL").style.display = 'none'
  document.getElementById("new-El").style.display = 'none'
  document.getElementById("exit-btn").style.display = 'block'
 }
 messageEl.textContent = message
+}
+
+let firstCardDealer = Math.floor(Math.random()*11)+1
+let numberDealer = document.getElementById('dealerCard')
+
+function cardDealer(){
+     numberDealer.textContent = firstCardDealer + " , ?"
+}
+
+function stand(){
+     messageEl.textContent = "This is your final sum"
+     document.getElementById("new-El").style.display = 'none'
+     document.getElementById("stand-EL").style.display = 'none'
+     document.getElementById("secondCardDealerM").style.display = 'block'
 }
 
 function exitGame(){
@@ -112,7 +124,6 @@ function exitGame(){
 function start(url) {
  let windows = open(url);
 }
-
 // how do loops work ?
 //          START         FINISH   STEP SIZE
 // for (let coutn = 0; count < 11; count += 1){
