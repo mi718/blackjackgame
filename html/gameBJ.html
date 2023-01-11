@@ -22,16 +22,16 @@
   <h1><b>Blackjack</b></h1>
   <div id="mainGame">
     <div id="gameOptions">
-      <p class="option">Bet</p>
-      <p class="option">Split</p>
-      <p class="option">Cash out</p>
-      <p class="option">Credit: 0</p>
+      <button class="option">Bet</button>
+      <button class="option">Split</button>
+      <button class="option">Cash out</button>
+      <p class="option" id="credits">Credit: 400$</p>
       <section class="option">
         <p>Deaeler cards:</p>
-        <table>
+        <table id="dealerCard">
           <tr>
-            <td><img src="../images/designCards.jpg" alt="card" class="cardDesign"></td>
-            <td><img src="../images/designCards.jpg" alt="card" class="cardDesign"></td>
+            <td><img src="../deckOfCards/jack_of_clubs.png" alt="card" class="cardDesign" id="dealerCard1"></td>
+            <td><img src="../images/designCards.jpg" alt="card" class="cardDesign" id="dealerCard2"></td>
           </tr>
         </table>
       </section>
@@ -42,7 +42,7 @@
     <p id="card-El" class="pmain">Cards:</p>
     <p id="sum-El" class="pmain">Sum:</p>
     </div>
-    <br>
+    <br> coque was is it that si me llamas no esperas manana si cuando estas 
     <button onclick="startGame()" id="start-btn">TAKE 2 CARDS</button>
     <div id="extra-btn">
       <button id="new-El" onclick="newCard()">PICK CARD</button>
@@ -60,7 +60,6 @@
   <footer>
     <p>made by: <br> Micael Staeubli</p>
   </footer>
-
   <script src="../index.js"></script>
 </body>
 </html>
