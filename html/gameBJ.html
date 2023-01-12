@@ -18,14 +18,14 @@
   </div>
  </header>
 
- <main>
+<main>
   <h1><b>Blackjack</b></h1>
-  <div id="mainGame">
-    <div id="gameOptions">
-      <button class="option">Bet</button>
-      <button class="option">Split</button>
-      <button class="option">Double</button>
-      <p class="option" id="credits">INITIAL CREDIT: &nbsp; 400$</p>
+    <div id="mainGame">
+      <div id="gameOptions">
+        <button class="option">Bet</button>
+        <button class="option">Split</button>
+        <button class="option">Double</button>
+        <p class="option" id="credits">INITIAL CREDIT: &nbsp; 400$</p>
 
       <div id="dealerSection">
 
@@ -47,35 +47,62 @@
             <td><img src="../images/designCards.jpg" alt="card" class="cardDesign" id="dealerCard2"></td>
           </tr>
         </table>-->
-    </div>
-    <div id="action-El">
-    <div id="userInfo">
-    <p id="message-El" class="pmain"> Want to play a round?</p>
-    <p id="card-El" class="pmain">Cards:</p>
-    <p id="sum-El" class="pmain">Sum:</p>
+      </div>
 
-    <div id="secondCardDealerM">
-    <p class="pmain" style="font-family: Verdana, Geneva, Tahoma, sans-serif;" id="whatCard">Dealer's second card:</p>
-    <button onclick="dealerTurn()"><img src="../images/eyeLogo.png" alt="eyeSymbol" id="eye"></button>
-    </div>
-    </div>
-    <br> 
-    <button onclick="startGame()" id="start-btn">TAKE 2 CARDS</button>
-    <div id="extra-btn">
-      <button id="new-El" onclick="newCard()">HIT</button>
-      <br>
-      <br>
-      <button id="stand-EL" onclick="stand()">STAND</button>
-    </div>
-    <div id="exit-btn">
-      <button onclick="exitGame()" id="exitPage">EXIT</button>
-    </div>
-    <div id="newGame-btn">
-      <button onclick="exitGame()">NEW GAME</button>
-    </div> 
+      <div id="action-El">
+        <section id="actionInital">
+
+          <div id="userInfo">
+            <div id="mainInfo">
+              <p id="message-El" class="pmain"> Want to play a round?</p>
+              <p id="card-El" class="pmain">Cards:</p>
+              <p id="sum-El" class="pmain">Sum:</p>
+              <button onclick="startGame()" id="start-btn">TAKE 2 CARDS</button>
+              <div id="exit-btn">
+                <button onclick="exitGame()" id="exitPage">EXIT</button>
+              </div>
+            </div>
+            <div id="secondCardDealerM">
+                <p class="pmain" style="font-family: Verdana, Geneva, Tahoma, sans-serif;" id="whatCard">Dealer's second card:</p>
+                <button onclick="dealerTurn()" id="eye-btn"><img src="../images/eyeLogo.png" alt="eyeSymbol" id="eye"></button>
+            </div>
+          </div>
+
+          <br> 
+          <div id="extra-btn">
+            <button id="new-El" onclick="newCard()">HIT</button>
+            <br>
+            <br>
+            <button id="stand-EL" onclick="stand()">STAND</button>
+          </div>
+          <div id="newGame-btn">
+            <button onclick="exitGame()">NEW GAME</button>
+          </div> 
+        </section>
+
+
+      <section id="calcText">
+        <p class="pmain"><i>Calculating results....</i></p>
+      </section>
+      <section id="winText">
+        <p class="pmain">Congratulation!!! <br> You won</p>
+        <p class="whatNext"> Collect your winnings <br> and start playing again :)</span> </p>
+        <button> <i>'TAKE YOUR MONEY'</i></button> <br> <br>
+        <button onclick="exitGame()">NEW ROUND</button>
+      </section>
+      <section id="loseText" style="display: none;">
+        <p class="pmain">It looks like you lost!!! <br> Try and start playing again </p>
+        <p class="whatNext"> Credits lost: 0 &nbsp; &nbsp; Remaining credits: 0</span> </p>
+        <button onclick="exitGame()">Try again</button>
+      </section>
+      <section id="tieText" style="display: none;">
+        <p class="pmain">Tie!!! <br> Both the player and the dealer lose nothing.</p>
+        <p class="whatNext">The next game begins</p>
+        <button onclick="exitGame()">NEW ROUND</button>
+      </section>
     </div>
   </div>
-  </main>
+</main>
 
   <footer>
     <p>made by: <br> Micael Staeubli</p>

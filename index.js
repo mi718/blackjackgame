@@ -6,13 +6,14 @@ let message = ""
 let messageEl = document.getElementById("message-El")
 let cardEl = document.getElementById("card-El")
 let sumEl = document.getElementById("sum-El")
+let startCredits = 300
 
 function newCard(){
- let card =  Math.floor(Math.random()*11)+1
- cards.push(card)
- sum = cards.reduce((prev,curr)=>prev + curr, 0)
- startGame()
- document.getElementById("newCard").style.display = 'none'  
+     let card =  Math.floor(Math.random()*11)+1
+     cards.push(card)
+     sum = cards.reduce((prev,curr)=>prev + curr, 0)
+     startGame()
+     document.getElementById("newCard").style.display = 'none'  
 }
 
 const card_img = [
@@ -77,33 +78,42 @@ const card_img = [
 console.log(card_img[Math.floor(Math.random()*52)])
 
 function startGame(){
-document.getElementById("start-btn").style.display = 'none'
-document.getElementById("gameOptions").style.display = 'block'
-document.getElementById("dealerCard").style.display = 'block'
-cardDealer()
 
-cardEl.textContent = "Cards: " + cards 
-sumEl.textContent = "Sum: " + sum 
+     document.getElementById("start-btn").style.display = 'none'
+     document.getElementById("gameOptions").style.display = 'block'
+     document.getElementById("dealerCard").style.display = 'block'
+     cardDealer()
 
-if(sum <= 20){
- message = "Do you want to draw a new card?"
- document.getElementById("extra-btn").style.display = 'block' 
-}else if(sum === 21){
- message = "You've got Blackjack"
- document.getElementById("extra-btn").style.display = 'none'
- document.getElementById("newGame-btn").style.display = 'block'
-} else {
- message = "You're out of the game"
- document.getElementById("start-btn").style.display = 'none'
- document.getElementById("stand-EL").style.display = 'none'
- document.getElementById("new-El").style.display = 'none'
- document.getElementById("exit-btn").style.display = 'block'
+     cardEl.textContent = "Cards: " + cards 
+     sumEl.textContent = "Sum: " + sum 
+
+     if(sum <= 20){
+          message = "Do you want to draw a new card?"
+          document.getElementById("extra-btn").style.display = 'block'}
+     else if(sum === 21){
+          message = "You've got Blackjack"
+          document.getElementById("extra-btn").style.display = 'none'
+          document.getElementById("mainInfo").style.display = 'none'
+          document.getElementById("winText").style.display = 'block'
+     } else {
+          message = "You're out of the game"
+          document.getElementById("mainInfo").style.display = 'none'
+          document.getElementById("stand-EL").style.display = 'none'
+          document.getElementById("new-El").style.display = 'none'
+          document.getElementById("loseText").style.display = 'block'
 }
-messageEl.textContent = message
+     messageEl.textContent = message
+}
+
+function exitGame(){
+     location.reload();
+}
+
+function start(url) {
+     let windows = open(url);
 }
 
 let firstCardDealer = Math.floor(Math.random()*11)+1
-
 let totalDealerCards = [firstCardDealer]
 let numberDealer = document.getElementById('dealerCard')
 let sumDealerID = document.getElementById('sumDealer')
@@ -123,36 +133,56 @@ function stand(){
 let secondCardDealer = Math.floor(Math.random()*11)+1
 let totalSumDealer = firstCardDealer + secondCardDealer
 let sumDealer = totalDealerCards.reduce((prev,curr)=>prev + curr, 0)
-function dealerTurn(){
 
-setTimeout(() => {
-     totalDealerCards.push(secondCardDealer)
-     numberDealer.textContent = firstCardDealer + ' , ' + secondCardDealer
-     sumDealerID.textContent = totalSumDealer
-     function nextStep(){
-          setTimeout(() => {
-               if(totalSumDealer <  17){
-               let newDeaelerCard = Math.floor(Math.random()*11)+1
-               totalDealerCards.push(newDeaelerCard)
-               numberDealer.textContent = totalDealerCards
-               sumDealer = totalDealerCards.reduce((prev,curr)=>prev + curr, 0)
-               sumDealerID.textContent = sumDealer} else{
-                    results()
-               }}, 500);
-     }
+
+
+function dealerTurn(){
+     document.getElementById("eye-btn").style.display = 'none'
+     setTimeout(() => {
+          totalDealerCards.push(secondCardDealer)
+          numberDealer.textContent = firstCardDealer + ' , ' + secondCardDealer
+          sumDealerID.textContent = totalSumDealer
+          function nextStep(){
+               setTimeout(() => {
+                    if(totalSumDealer <  17){
+                         let newDeaelerCard = Math.floor(Math.random()*11)+1
+                         totalDealerCards.push(newDeaelerCard)
+                         numberDealer.textContent = totalDealerCards
+                         sumDealer = totalDealerCards.reduce((prev,curr)=>prev + curr, 0)
+                         sumDealerID.textContent = sumDealer} 
+                    else{results()}
+               }, 500);
+          }    
      nextStep()
+
      function results(){
           setTimeout(() => {
-                document.getElementById("action-El").style.display = 'none'
+               document.getElementById("actionInital").style.display = 'none'
+               document.getElementById("calcText").style.display = 'block'
+               document.getElementById("calcText").style.display = 'none'
+          }, 1000);
+     }
+     
+     results()
+     function result_Text(){
+          setTimeout(() => {
+               sumDealer = totalDealerCards.reduce((prev,curr)=>prev + curr, 0)
+               sum = cards.reduce((prev,curr)=>prev + curr, 0)
+
+               if(sumDealer > 21){
+                    document.getElementById("winText").style.display = 'block'
+               }
+               else if (sumDealer < sum){
+                    document.getElementById("winText").style.display = 'block'
+               }
+               else if (sum < sumDealer){
+                    document.getElementById("loseText").style.display = 'block'
+               } 
+               else {
+                    document.getElementById("tieText").style.display = 'block'
+               }
           }, 2000);
      }
-     results()
+     result_Text()    
+
 }, 500);}
-
-function exitGame(){ 
- location.reload();
-}
-
-function start(url) {
- let windows = open(url);
-}
