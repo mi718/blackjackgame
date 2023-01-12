@@ -109,7 +109,7 @@ function exitGame(){
      location.reload();
 }
 
-function start(url) {
+function start() {
      let windows = open("../html/gameBJ.html");
 }
 
