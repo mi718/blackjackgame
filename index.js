@@ -103,7 +103,10 @@ messageEl.textContent = message
 }
 
 let firstCardDealer = Math.floor(Math.random()*11)+1
+
+let totalDealerCards = [firstCardDealer]
 let numberDealer = document.getElementById('dealerCard')
+let sumDealerID = document.getElementById('sumDealer')
 
 function cardDealer(){
      numberDealer.textContent = firstCardDealer + " , ?"
@@ -114,20 +117,42 @@ function stand(){
      document.getElementById("new-El").style.display = 'none'
      document.getElementById("stand-EL").style.display = 'none'
      document.getElementById("secondCardDealerM").style.display = 'block'
+     document.getElementById("sum-El").style.backgroundColor = 'goldenrod'
 }
 
-function exitGame(){
- // reload page code (!!) 
+let secondCardDealer = Math.floor(Math.random()*11)+1
+let totalSumDealer = firstCardDealer + secondCardDealer
+let sumDealer = totalDealerCards.reduce((prev,curr)=>prev + curr, 0)
+function dealerTurn(){
+
+setTimeout(() => {
+     totalDealerCards.push(secondCardDealer)
+     numberDealer.textContent = firstCardDealer + ' , ' + secondCardDealer
+     sumDealerID.textContent = totalSumDealer
+     function nextStep(){
+          setTimeout(() => {
+               if(totalSumDealer <  17){
+               let newDeaelerCard = Math.floor(Math.random()*11)+1
+               totalDealerCards.push(newDeaelerCard)
+               numberDealer.textContent = totalDealerCards
+               sumDealer = totalDealerCards.reduce((prev,curr)=>prev + curr, 0)
+               sumDealerID.textContent = sumDealer} else{
+                    results()
+               }}, 500);
+     }
+     nextStep()
+     function results(){
+          setTimeout(() => {
+                document.getElementById("action-El").style.display = 'none'
+          }, 2000);
+     }
+     results()
+}, 500);}
+
+function exitGame(){ 
  location.reload();
 }
 
 function start(url) {
  let windows = open(url);
 }
-// how do loops work ?
-//          START         FINISH   STEP SIZE
-// for (let coutn = 0; count < 11; count += 1){
-     // what to do....
-     // example: console.log(count)
-     //          age -= 1
-//}

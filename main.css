@@ -83,6 +83,23 @@ button{
  border-radius: 10px;
 }
 
+.numbers{
+ display: flex ;
+}
+
+#dealerSection{
+  margin-bottom: 1vw;
+  background-color: goldenrod;
+  font-size: 2rem;
+  padding: 1vw;
+  width: 20rem;
+  border-radius: 10px;
+}
+
+#totalSum{
+ display: flex;
+}
+
 #whatCard{
  font-size: 2vw;
 }

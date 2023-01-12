@@ -24,27 +24,39 @@
     <div id="gameOptions">
       <button class="option">Bet</button>
       <button class="option">Split</button>
-      <button class="option">Cash out</button>
-      <p class="option" id="credits">Credit: 400$</p>
-      <section class="option">
-        <p>Deaeler cards:</p> &nbsp; &nbsp;
+      <button class="option">Double</button>
+      <p class="option" id="credits">INITIAL CREDIT: &nbsp; 400$</p>
+
+      <div id="dealerSection">
+
+        <section class="numbers">
+        <p>Dealer cards:</p> &nbsp; &nbsp;
         <p id="dealerCard"> 0 , ? </p>
+        </section>
+
+        <section id="totalSum">
+        <p>Dealer sum:</p>&nbsp; &nbsp;
+        <p id="sumDealer"></p>
+        </section>
+
+      </div>
+
         <!-- <table id="dealerCard"> 
           <tr>
             <td><img src="../deckOfCards/jack_of_clubs.png" alt="card" class="cardDesign" id="dealerCard1"></td>
             <td><img src="../images/designCards.jpg" alt="card" class="cardDesign" id="dealerCard2"></td>
           </tr>
         </table>-->
-      </section>
     </div>
     <div id="action-El">
     <div id="userInfo">
     <p id="message-El" class="pmain"> Want to play a round?</p>
     <p id="card-El" class="pmain">Cards:</p>
     <p id="sum-El" class="pmain">Sum:</p>
+
     <div id="secondCardDealerM">
-    <p class="pmain" style="font-family: Verdana, Geneva, Tahoma, sans-serif;" id="whatCard">Let's see what the dealer's <br> second card is</p>
-    <button><img src="../images/eyeLogo.png" alt="eyeSymbol" id="eye"></button>
+    <p class="pmain" style="font-family: Verdana, Geneva, Tahoma, sans-serif;" id="whatCard">Dealer's second card:</p>
+    <button onclick="dealerTurn()"><img src="../images/eyeLogo.png" alt="eyeSymbol" id="eye"></button>
     </div>
     </div>
     <br> 
