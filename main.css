@@ -45,13 +45,27 @@ h1{
 
 button{
  color: white;
- width: 25vw;
- height: 10vh;
+ width: 5vw;
+ height: 5vh;
  font-size: 1.5vw;
  background: goldenrod;
  font-weight: bolder;
  border-style: none;
  border-radius: 10px;
+}
+
+.buttons{
+  width: 25vw;
+  height: 10vh;
+}
+.optionCredit{
+  display: flex;
+  margin-bottom: 1vw;
+  background-color: goldenrod;
+  font-size: 2rem;
+  padding: 1vw;
+  width: 20rem;
+  border-radius: 10px;
 }
 
 #extra-btn{
@@ -76,11 +90,13 @@ button{
 .option{
  display: flex;
  margin-bottom: 1vw;
- background-color: goldenrod;
+ background-color: #daa520;
  font-size: 2rem;
  padding: 1vw;
  width: 20rem;
  border-radius: 10px;
+ width: 13.3vw;
+ height: 8vh;
 }
 
 .numbers{
@@ -109,7 +125,6 @@ button{
  height: 4vh;
  padding: 20px;
  background-color: goldenrod;
- border-radius: 360%;
 }
 
 #calcText{
@@ -139,6 +154,7 @@ button{
 #action-El{
  background-color: rgba(218, 165, 32, 0.266);
  padding: 4vw;
+ padding-top: 3vh;
  border-radius: 10px;
  flex-grow: 1;
  margin-left: 5vw;

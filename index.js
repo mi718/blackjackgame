@@ -110,7 +110,7 @@ function exitGame(){
 }
 
 function start(url) {
-     let windows = open(url);
+     let windows = open("../html/gameBJ.html");
 }
 
 let firstCardDealer = Math.floor(Math.random()*11)+1
