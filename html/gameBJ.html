@@ -22,10 +22,11 @@
   <h1><b>Blackjack</b></h1>
     <div id="mainGame">
       <div id="gameOptions">
-        <button class="option" onclick="betAlert()">Bet</button>
+        <button class="option" onclick="alert()" id="bet-btn">Bet</button>
         <button class="option">Split</button>
         <button class="option">Double</button>
-        <p class="optionCredit" id="credits">INITIAL CREDIT: &nbsp; 400$</p>
+        <p class="optionCredit" id="creditsText">INITIAL CREDIT: &nbsp; <span id="credits"> 400</span> $ </p>
+        <p class="optionCredit" id="yourBetInfo">YOUR BET: &nbsp; <span id="betAmount"> 0</span> $ </p>
 
       <div id="dealerSection">
 

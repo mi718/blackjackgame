@@ -1,13 +1,14 @@
-function betAlert(){ swal.fire({
+function betReminder(){ swal.fire({
+ icon: 'info',
  allowOutsideClick: false,
  allowEscapeKey: false,
- allowEnterKey: true,
+ allowEnterKey: false,
  stopKeydownPropagation: false,
  width: '20%',
- title: "How much you wish to bet?",
- text: 'to continue please enter an amount',
+ title: "Remember!!",
+ text: 'In order to start the game you have to make a',
  input: 'number',
  inputPlaceholder: 'amount...',
  confirmButtonText: 'Bet',
- footer: 'made by: Micael Staeubli'
+ footer: 'made by: Micael Staeubli',
 });}

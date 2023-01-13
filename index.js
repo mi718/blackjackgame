@@ -7,6 +7,7 @@ let messageEl = document.getElementById("message-El")
 let cardEl = document.getElementById("card-El")
 let sumEl = document.getElementById("sum-El")
 let startCredits = 300
+document.getElementById("start-btn").disabled = true;
 
 function newCard(){
      let card =  Math.floor(Math.random()*11)+1
@@ -78,7 +79,6 @@ const card_img = [
 console.log(card_img[Math.floor(Math.random()*52)])
 
 function startGame(){
-
      document.getElementById("start-btn").style.display = 'none'
      document.getElementById("gameOptions").style.display = 'block'
      document.getElementById("dealerCard").style.display = 'block'
@@ -186,3 +186,45 @@ function dealerTurn(){
      result_Text()    
 
 }, 500);}
+
+let userCredit = document.getElementById('credits')
+let betTotal = 400
+
+function alert(){
+     swal.fire({
+     content: "input",
+     icon: 'info',
+     allowOutsideClick: false,
+     allowEscapeKey: false,
+     allowEnterKey: true,
+     stopKeydownPropagation: false,
+     width: '20%',
+     title: "How much you wish to bet?",
+     text: 'to continue please enter an amount',
+     input: 'number',
+     inputPlaceholder: 'amount...',
+     confirmButtonText: 'Bet',
+     footer: 'made by: Micael Staeubli',
+     })
+.then((value) => {
+     userCredit.textContent = betTotal - Number(value.value)
+     betTotal = parseInt(value.value)
+     // with 'JSON.stringify(value);' i was able to see the elemenets inside the object value
+     disableButtonBet()
+     document.getElementById('yourBetInfo').style.display = 'block'
+     betSum()
+     document.getElementById("start-btn").disabled = false;
+
+
+});
+}
+
+function disableButtonBet() {
+  document.getElementById("bet-btn").disabled = true;
+}
+
+let myBet = document.getElementById('betAmount')
+
+function betSum(){
+     myBet.textContent = betTotal
+}
