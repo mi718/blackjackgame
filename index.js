@@ -105,10 +105,6 @@ function startGame(){
      messageEl.textContent = message
 }
 
-function exitGame(){
-     location.reload();
-}
-
 function start() {
      let windows = open("../html/gameBJ.html");
 }
@@ -133,7 +129,7 @@ function stand(){
 let secondCardDealer = Math.floor(Math.random()*11)+1
 let totalSumDealer = firstCardDealer + secondCardDealer
 let sumDealer = totalDealerCards.reduce((prev,curr)=>prev + curr, 0)
-
+let userCredit = document.getElementById('credits')
 
 
 function dealerTurn(){
@@ -159,7 +155,6 @@ function dealerTurn(){
           setTimeout(() => {
                document.getElementById("actionInital").style.display = 'none'
                document.getElementById("calcText").style.display = 'block'
-               document.getElementById("calcText").style.display = 'none'
           }, 1000);
      }
      
@@ -168,7 +163,7 @@ function dealerTurn(){
           setTimeout(() => {
                sumDealer = totalDealerCards.reduce((prev,curr)=>prev + curr, 0)
                sum = cards.reduce((prev,curr)=>prev + curr, 0)
-
+               document.getElementById("calcText").style.display = 'none'
                if(sumDealer > 21){
                     document.getElementById("winText").style.display = 'block'
                }
@@ -187,8 +182,8 @@ function dealerTurn(){
 
 }, 500);}
 
-let userCredit = document.getElementById('credits')
 let betTotal = 400
+let myBetTotal = 0
 
 function alert(){
      swal.fire({
@@ -208,12 +203,13 @@ function alert(){
      })
 .then((value) => {
      userCredit.textContent = betTotal - Number(value.value)
-     betTotal = parseInt(value.value)
+     myBetTotal = parseInt(value.value)
      // with 'JSON.stringify(value);' i was able to see the elemenets inside the object value
      disableButtonBet()
      document.getElementById('yourBetInfo').style.display = 'block'
      betSum()
      document.getElementById("start-btn").disabled = false;
+     document.getElementById("start-btn").style.backgroundColor = "goldenrod"
 
 
 });
@@ -226,5 +222,25 @@ function disableButtonBet() {
 let myBet = document.getElementById('betAmount')
 
 function betSum(){
-     myBet.textContent = betTotal
+     myBet.textContent = myBetTotal
+}
+
+function takeMoney(){
+     myBetTotal *2
+     price = betTotal + myBetTotal
+     userCredit.textContent = price
+     myBet.textContent = 0
+     document.getElementById('takeMoney-btn').style.display = 'none'
+}
+
+function exitGame(){
+     startGame()
+     newCard()
+     cardDealer()
+     stand()
+     dealerTurn()
+     results()
+     result_Text()
+     disableButtonBet()
+     betSum()  
 }
