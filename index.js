@@ -133,6 +133,7 @@ let userCredit = document.getElementById('credits')
 
 
 function dealerTurn(){
+     document.getElementById("leave-btn").style.display = 'block'
      document.getElementById("eye-btn").style.display = 'none'
      setTimeout(() => {
           totalDealerCards.push(secondCardDealer)
@@ -188,7 +189,7 @@ let myBetTotal = 0
 function alert(){
      swal.fire({
      content: "input",
-     icon: 'info',
+     icon: 'question',
      allowOutsideClick: false,
      allowEscapeKey: false,
      allowEnterKey: true,
@@ -234,13 +235,13 @@ function takeMoney(){
 }
 
 function exitGame(){
-     startGame()
-     newCard()
-     cardDealer()
-     stand()
-     dealerTurn()
-     results()
-     result_Text()
-     disableButtonBet()
-     betSum()  
+     location.reload()
+     return false
+}
+
+function leave(){
+     document.getElementById('leaveGame').style.backgroundColor = '#daa52044'
+     setTimeout(() => {
+          exitGame()
+     }, 500);
 }

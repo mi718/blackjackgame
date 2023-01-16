@@ -39,8 +39,8 @@
         <p>Dealer sum:</p>&nbsp; &nbsp;
         <p id="sumDealer"></p>
         </section>
-
       </div>
+      <button class="option" onclick="leave()" id="leave-btn" style="display: none;">Leave Game</button>
 
         <!-- <table id="dealerCard"> 
           <tr>
@@ -80,8 +80,6 @@
             <button onclick="exitGame()" class="buttons">NEW GAME</button>
           </div> 
         </section>
-
-
       <section id="calcText">
         <p class="pmain"><i>Calculating results....</i></p>
       </section>
@@ -100,6 +98,10 @@
         <p class="pmain">Tie!!! <br> Both the player and the dealer lose nothing.</p>
         <p class="whatNext">The next game begins</p>
         <button onclick="exitGame()" class="buttons">NEW ROUND</button>
+      </section>
+      <section id="leaveGame" style="display: none;">
+        <p class="pmain">I hope you had fun  <br> Your stats:</p>
+        <p class="whatNext"> Money earned (in '$'): <br> in (%): <br> Time played: <br> </p>
       </section>
     </div>
   </div>
