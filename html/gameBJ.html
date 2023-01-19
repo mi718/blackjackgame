@@ -56,7 +56,7 @@
           <div id="userInfo">
             <div id="mainInfo">
               <p id="message-El" class="pmain"> Want to play a round?</p>
-              <p id="card-El" class="pmain">Cards:</p>
+              <p id="card-El" class="pmain">Cards: &nbsp; <span><img src="../images/designCards.jpg" alt="imgCard" id="cardAsImg"></span></p>
               <p id="sum-El" class="pmain">Sum:</p>
               <button onclick="startGame()" id="start-btn" class="buttons">TAKE 2 CARDS</button>
               <div id="exit-btn">
@@ -91,7 +91,7 @@
       </section>
       <section id="loseText" style="display: none;">
         <p class="pmain">It looks like you lost!!! <br> Try and start playing again </p>
-        <p class="whatNext"> Credits lost: 0 &nbsp; &nbsp; Remaining credits: 0</span> </p>
+        <p class="whatNext"> Credits lost: <span id="lostC" > 0 </span> &nbsp; &nbsp; Remaining credits: <span id="remainC"> 0 </span> </p>
         <button onclick="exitGame()" class="buttons">Try again</button>
       </section>
       <section id="tieText" style="display: none;">

@@ -1,22 +1,3 @@
-let firstCard = Math.floor(Math.random()*11)+1
-let secondCard = Math.floor(Math.random()*11)+1
-let cards = [firstCard, secondCard]
-let sum = cards.reduce((prev,curr)=>prev + curr, 0)
-let message = ""
-let messageEl = document.getElementById("message-El")
-let cardEl = document.getElementById("card-El")
-let sumEl = document.getElementById("sum-El")
-let startCredits = 300
-document.getElementById("start-btn").disabled = true;
-
-function newCard(){
-     let card =  Math.floor(Math.random()*11)+1
-     cards.push(card)
-     sum = cards.reduce((prev,curr)=>prev + curr, 0)
-     startGame()
-     document.getElementById("newCard").style.display = 'none'  
-}
-
 const card_img = [
      {value:1 , img:'../deckOfCards/ace_of_clubs.png'},
      {value:1  , img:'../deckOfCards/ace_of_diamonds.png'},
@@ -76,22 +57,33 @@ const card_img = [
      {value:11 , img:'../deckOfCards/aces_of_spades.png' }
 ]
 
-console.log(card_img[Math.floor(Math.random()*52)])
+let firstCard = card_img[Math.floor(Math.random()*52)]
+let secondCard = card_img[Math.floor(Math.random()*52)]
+let cardsIMG = [firstCard.img, secondCard.img]
+let cards = [firstCard.value, secondCard.value]
+let sum = cards.reduce((prev,curr)=>prev + curr, 0)
+let message = ""
+let messageEl = document.getElementById("message-El")
+let cardEl = document.getElementById("cardAsImg")
+let sumEl = document.getElementById("sum-El")
+let startCredits = 400
+
+document.getElementById("start-btn").disabled = true;
+
 
 function startGame(){
      document.getElementById("start-btn").style.display = 'none'
      document.getElementById("gameOptions").style.display = 'block'
      document.getElementById("dealerCard").style.display = 'block'
      cardDealer()
-
-     cardEl.textContent = "Cards: " + cards 
+     cardEl.setAttribute("cardAsImg", cardsIMG)
      sumEl.textContent = "Sum: " + sum 
 
      if(sum <= 20){
           message = "Do you want to draw a new card?"
           document.getElementById("extra-btn").style.display = 'block'}
      else if(sum === 21){
-          message = "You've got Blackjack"
+          message = "You've got Blackjack" 
           document.getElementById("extra-btn").style.display = 'none'
           document.getElementById("mainInfo").style.display = 'none'
           document.getElementById("winText").style.display = 'block'
@@ -101,21 +93,34 @@ function startGame(){
           document.getElementById("stand-EL").style.display = 'none'
           document.getElementById("new-El").style.display = 'none'
           document.getElementById("loseText").style.display = 'block'
+          lostC.textContent = myBetTotal
+          remainC.textContent = 400 - myBetTotal
 }
      messageEl.textContent = message
+}
+
+function newCard(){
+     let card = card_img[Math.floor(Math.random()*52)]
+     cards.push(card.value)
+     cardsIMG.push(card.img)
+     sum = cards.reduce((prev,curr)=>prev + curr, 0)
+     startGame()
+     document.getElementById("newCard").style.display = 'none' 
+
 }
 
 function start() {
      let windows = open("../html/gameBJ.html");
 }
 
-let firstCardDealer = Math.floor(Math.random()*11)+1
-let totalDealerCards = [firstCardDealer]
+let firstCardDealer = card_img[Math.floor(Math.random()*52)]
+let totalDealerCardsIMG = [firstCardDealer.img]
+let totalDealerCards = [firstCardDealer.value]
 let numberDealer = document.getElementById('dealerCard')
 let sumDealerID = document.getElementById('sumDealer')
 
 function cardDealer(){
-     numberDealer.textContent = firstCardDealer + " , ?"
+     numberDealer.textContent = firstCardDealer.value + " , ?"
 }
 
 function stand(){
@@ -126,25 +131,27 @@ function stand(){
      document.getElementById("sum-El").style.backgroundColor = 'goldenrod'
 }
 
-let secondCardDealer = Math.floor(Math.random()*11)+1
-let totalSumDealer = firstCardDealer + secondCardDealer
+let secondCardDealer = card_img[Math.floor(Math.random()*52)]
+let totalSumDealer = firstCardDealer.value + secondCardDealer.value
 let sumDealer = totalDealerCards.reduce((prev,curr)=>prev + curr, 0)
 let userCredit = document.getElementById('credits')
+let lostC =  document.getElementById("lostC")
+let remainC =  document.getElementById("remainC")
 
 
 function dealerTurn(){
      document.getElementById("leave-btn").style.display = 'block'
      document.getElementById("eye-btn").style.display = 'none'
      setTimeout(() => {
-          totalDealerCards.push(secondCardDealer)
-          numberDealer.textContent = firstCardDealer + ' , ' + secondCardDealer
+          totalDealerCards.push(secondCardDealer.value)
+          numberDealer.textContent = firstCardDealer.value + ' , ' + secondCardDealer.value
           sumDealerID.textContent = totalSumDealer
           function nextStep(){
                setTimeout(() => {
                     if(totalSumDealer <  17){
-                         let newDeaelerCard = Math.floor(Math.random()*11)+1
-                         totalDealerCards.push(newDeaelerCard)
-                         numberDealer.textContent = totalDealerCards
+                         let newDeaelerCard = card_img[Math.floor(Math.random()*52)]
+                         totalDealerCards.push(newDeaelerCard.value)
+                         numberDealer.textContent = totalDealerCards.value
                          sumDealer = totalDealerCards.reduce((prev,curr)=>prev + curr, 0)
                          sumDealerID.textContent = sumDealer} 
                     else{results()}
@@ -173,6 +180,9 @@ function dealerTurn(){
                }
                else if (sum < sumDealer){
                     document.getElementById("loseText").style.display = 'block'
+                    lostC.textContent = myBetTotal
+                    remainC.textContent = 400 - myBetTotal
+
                } 
                else {
                     document.getElementById("tieText").style.display = 'block'
@@ -203,7 +213,8 @@ function alert(){
      footer: 'made by: Micael Staeubli',
      })
 .then((value) => {
-     userCredit.textContent = betTotal - Number(value.value)
+     let myTotalcount = betTotal - Number(value.value)
+     userCredit.textContent = myTotalcount
      myBetTotal = parseInt(value.value)
      // with 'JSON.stringify(value);' i was able to see the elemenets inside the object value
      disableButtonBet()
@@ -215,6 +226,8 @@ function alert(){
 
 });
 }
+
+let storedBetTotal = localStorage.getItem("myTotalcount");
 
 function disableButtonBet() {
   document.getElementById("bet-btn").disabled = true;
