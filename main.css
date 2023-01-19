@@ -10,8 +10,9 @@ body{
 }
 
 main{
- margin-left: 10vw;
- margin-right: 10vw;}
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
 
 #headerLogo{
  margin-left: 2vw;
@@ -70,9 +71,9 @@ button{
   display: flex;
   margin-bottom: 1vw;
   background-color: goldenrod;
-  font-size: 2rem;
+  font-size: 2vw;
   padding: 1vw;
-  width: 20rem;
+  width: 18vw;
   border-radius: 10px;
 }
 
@@ -101,8 +102,8 @@ button{
  background-color: #daa520;
  padding: 1vw;
  border-radius: 10px;
- width: 12rem;
- height: 4rem;
+ width: 15vw;
+ height: 8vh;
 }
 
 .numbers{
@@ -112,9 +113,9 @@ button{
 #dealerSection{
   margin-bottom: 1vw;
   background-color: goldenrod;
-  font-size: 2rem;
+  font-size: 2vw;
   padding: 1vw;
-  width: 20rem;
+  width: 18vw;
   border-radius: 10px;
 }
 
@@ -129,8 +130,7 @@ button{
 #eye{
  width: 4vw;
  height: 4vh;
- padding: 20px;
- background-color: goldenrod;
+ padding: 5px;
 }
 
 #calcText{
@@ -182,4 +182,6 @@ footer{
 }
 
 img{
-    width: 2vw;}
+    width: 6vw;
+    margin: 5px;
+}

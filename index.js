@@ -64,7 +64,8 @@ let cards = [firstCard.value, secondCard.value]
 let sum = cards.reduce((prev,curr)=>prev + curr, 0)
 let message = ""
 let messageEl = document.getElementById("message-El")
-let cardEl = document.getElementById("cardAsImg")
+let cardEl1 = document.getElementById("firstCardAsImg")
+let cardEl2 = document.getElementById("secondCardAsImg")
 let sumEl = document.getElementById("sum-El")
 let startCredits = 400
 
@@ -75,8 +76,10 @@ function startGame(){
      document.getElementById("start-btn").style.display = 'none'
      document.getElementById("gameOptions").style.display = 'block'
      document.getElementById("dealerCard").style.display = 'block'
+
      cardDealer()
-     cardEl.setAttribute("cardAsImg", cardsIMG)
+     document.getElementById("firstCardAsImg").src = firstCard.img
+     document.getElementById("secondCardAsImg").src = secondCard.img
      sumEl.textContent = "Sum: " + sum 
 
      if(sum <= 20){
@@ -103,10 +106,19 @@ function newCard(){
      let card = card_img[Math.floor(Math.random()*52)]
      cards.push(card.value)
      cardsIMG.push(card.img)
+     let cardPath = card.img
      sum = cards.reduce((prev,curr)=>prev + curr, 0)
      startGame()
-     document.getElementById("newCard").style.display = 'none' 
+     //document.getElementById("cardsImg").innerHTML = '<img src= cardPath alt="image">';
+     var img = document.createElement("img");
+          img.setAttribute("src", cardPath);
+          img.setAttribute("alt","image");
+     document.getElementById("cardsImg").appendChild(img);
 
+     //let image = document.createElement("img");
+          //img.src = card.img;
+          //img.alt = "image";
+     //document.getElementById("cardsImg").appendChild(image);
 }
 
 function start() {
