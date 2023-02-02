@@ -149,9 +149,6 @@ button{
  margin-bottom: auto;
 }*/
 
-#dealerCard{
- display: none;
-}
 
 .cardDesign{
  width: 5vw;
@@ -184,4 +181,9 @@ footer{
 img{
     width: 6vw;
     margin: 5px;
+}
+
+.dealerCards{
+  width: 2vw;
+  height: 6vh;
 }

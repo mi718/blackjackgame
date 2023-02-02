@@ -1,3 +1,6 @@
+function start() {
+     open("html/gameBJ.html");
+}
 const card_img = [
      {value:1 , img:'../deckOfCards/ace_of_clubs.png'},
      {value:1  , img:'../deckOfCards/ace_of_diamonds.png'},
@@ -68,10 +71,8 @@ let cardEl1 = document.getElementById("firstCardAsImg")
 let cardEl2 = document.getElementById("secondCardAsImg")
 let sumEl = document.getElementById("sum-El")
 let startCredits = 400
-
+const globalTotalBet = JSON.parse(localStorage.getItem("startCredits"))
 document.getElementById("start-btn").disabled = true;
-
-
 function startGame(){
      document.getElementById("start-btn").style.display = 'none'
      document.getElementById("gameOptions").style.display = 'block'
@@ -80,7 +81,7 @@ function startGame(){
      cardDealer()
      document.getElementById("firstCardAsImg").src = firstCard.img
      document.getElementById("secondCardAsImg").src = secondCard.img
-     sumEl.textContent = "Sum: " + sum 
+     sumEl.textContent = "Sum: " + sum
 
      if(sum <= 20){
           message = "Do you want to draw a new card?"
@@ -106,6 +107,7 @@ function newCard(){
      let card = card_img[Math.floor(Math.random()*52)]
      cards.push(card.value)
      cardsIMG.push(card.img)
+
      let cardPath = card.img
      sum = cards.reduce((prev,curr)=>prev + curr, 0)
      startGame()
@@ -121,18 +123,14 @@ function newCard(){
      //document.getElementById("cardsImg").appendChild(image);
 }
 
-function start() {
-     let windows = open("../html/gameBJ.html");
-}
-
 let firstCardDealer = card_img[Math.floor(Math.random()*52)]
 let totalDealerCardsIMG = [firstCardDealer.img]
 let totalDealerCards = [firstCardDealer.value]
 let numberDealer = document.getElementById('dealerCard')
 let sumDealerID = document.getElementById('sumDealer')
-
+let imgFirstDCard = document.getElementById("idDealerCard1")
 function cardDealer(){
-     numberDealer.textContent = firstCardDealer.value + " , ?"
+    imgFirstDCard = document.getElementById("idDealerCard1").src = firstCardDealer.img
 }
 
 function stand(){
@@ -146,6 +144,7 @@ function stand(){
 let secondCardDealer = card_img[Math.floor(Math.random()*52)]
 let totalSumDealer = firstCardDealer.value + secondCardDealer.value
 let sumDealer = totalDealerCards.reduce((prev,curr)=>prev + curr, 0)
+let cardElDdealer = document.getElementById("idDealerCard2")
 let userCredit = document.getElementById('credits')
 let lostC =  document.getElementById("lostC")
 let remainC =  document.getElementById("remainC")
@@ -156,7 +155,7 @@ function dealerTurn(){
      document.getElementById("eye-btn").style.display = 'none'
      setTimeout(() => {
           totalDealerCards.push(secondCardDealer.value)
-          numberDealer.textContent = firstCardDealer.value + ' , ' + secondCardDealer.value
+          cardElDdealer2 = document.getElementById("idDealerCard2").src = secondCardDealer.img
           sumDealerID.textContent = totalSumDealer
           function nextStep(){
                setTimeout(() => {
@@ -165,19 +164,24 @@ function dealerTurn(){
                          totalDealerCards.push(newDeaelerCard.value)
                          numberDealer.textContent = totalDealerCards.value
                          sumDealer = totalDealerCards.reduce((prev,curr)=>prev + curr, 0)
-                         sumDealerID.textContent = sumDealer} 
-                    else{results()}
+                         sumDealerID.textContent = sumDealer 
+                         var imgDealer = document.createElement("img");
+                              img.setAttribute("src", newDeaelerCard.img);
+                              img.setAttribute("alt","image");
+                         document.getElementById("dealerCard").appendChild(imgDealer );}
+                    else{results()}  
                }, 500);
           }    
      nextStep()
-
      function results(){
           setTimeout(() => {
                document.getElementById("actionInital").style.display = 'none'
                document.getElementById("calcText").style.display = 'block'
           }, 1000);
+          // do it different
+          //
      }
-     
+
      results()
      function result_Text(){
           setTimeout(() => {
@@ -199,6 +203,8 @@ function dealerTurn(){
                else {
                     document.getElementById("tieText").style.display = 'block'
                }
+
+
           }, 2000);
      }
      result_Text()    
@@ -270,3 +276,4 @@ function leave(){
           exitGame()
      }, 500);
 }
+

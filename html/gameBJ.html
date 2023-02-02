@@ -4,8 +4,9 @@
  <meta charset="UTF-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../main.css">
  <link rel="shortcut icon" href="../images/bjLogo.png" type="image/x-icon">
- <link rel="stylesheet" href="../main.css">
+ <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <title>BJ</title>
 </head>
 <body>
@@ -29,10 +30,9 @@
         <p class="optionCredit" id="yourBetInfo">YOUR BET: &nbsp; <span id="betAmount"> 0</span> $ </p>
 
       <div id="dealerSection">
-
         <section class="numbers">
         <p>Dealer cards:</p> &nbsp; &nbsp;
-        <p id="dealerCard"> 0 , ? </p>
+        <p id="dealerCard"> <img src="../images/designCards.jpg" alt="imgCardDealer1" class="dealerCards" id="idDealerCard1" ><img src="../images/designCards.jpg" alt="imgCardDealer2" class="dealerCards" id="idDealerCard2"> </p>
         </section>
 
         <section id="totalSum">
@@ -56,7 +56,7 @@
           <div id="userInfo">
             <div id="mainInfo">
               <p id="message-El" class="pmain"> Want to play a round?</p>
-              <p id="card-El" class="pmain">Cards: &nbsp; <span id="cardsImg"><img src="../images/designCards.jpg" alt="imgCard" id="firstCardAsImg"><img src="../images/designCards.jpg" alt="imgCard" id="secondCardAsImg"></span></p>
+              <p id="card-El" class="pmain">Cards: &nbsp; <span id="cardsImg"><img src="../images/designCards.jpg" alt="imgCard1" id="firstCardAsImg"><img src="../images/designCards.jpg" alt="imgCard2" id="secondCardAsImg"></span></p>
               <p id="sum-El" class="pmain">Sum:</p>
               <button onclick="startGame()" id="start-btn" class="buttons">TAKE 2 CARDS</button>
               <div id="exit-btn">
@@ -110,8 +110,7 @@
   <footer>
     <p>made by: <br> Micael Staeubli</p>
   </footer>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="../javaScript/sweetAlert.js"></script>
+  
   <script src="..//index.js"></script>
 </body>
 </html>
