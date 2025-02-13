@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/button';
 
 interface ChipProps {
   amount: number;

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
-import { soundManager } from '../../lib/sounds';
+import { soundManager } from '@/lib/sounds';
 
 interface CardProps {
   card: string;
@@ -16,14 +16,14 @@ export function Card({ card, hidden, index }: CardProps) {
 
   const variants = {
     initial: { scale: 0, rotate: -180 },
-    animate: {
-      scale: 1,
+    animate: { 
+      scale: 1, 
       rotate: 0,
-      transition: {
+      transition: { 
         type: "spring",
         stiffness: 200,
         damping: 15,
-        delay: index * 0.1
+        delay: index * 0.1 
       }
     }
   };
@@ -37,21 +37,21 @@ export function Card({ card, hidden, index }: CardProps) {
   };
 
   return (
-      <motion.div
-          initial="initial"
-          animate="animate"
-          variants={variants}
-          className="relative w-24 h-36 sm:w-32 sm:h-48"
-      >
-        <div className={`absolute inset-0 rounded-lg shadow-lg ${hidden ? 'bg-indigo-600' : ''}`}>
-          {!hidden && (
-              <img
-                  src={`/images/${getCardFilename(card)}`}
-                  alt={card}
-                  className="w-full h-full object-cover rounded-lg"
-              />
-          )}
-        </div>
-      </motion.div>
+    <motion.div
+      initial="initial"
+      animate="animate"
+      variants={variants}
+      className="relative w-24 h-36 sm:w-32 sm:h-48"
+    >
+      <div className={`absolute inset-0 rounded-lg shadow-lg ${hidden ? 'bg-indigo-600' : ''}`}>
+        {!hidden && (
+          <img 
+            src={`/images/${getCardFilename(card)}`}
+            alt={card}
+            className="w-full h-full object-cover rounded-lg"
+          />
+        )}
+      </div>
+    </motion.div>
   );
 }
