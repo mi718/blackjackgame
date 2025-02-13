@@ -1,8 +1,8 @@
 # Modern React Blackjack Game
 
-A sleek and interactive Blackjack game built with React, featuring a modern UI design with animations and comprehensive game history tracking.
+<img width="171" alt="Blackjack" src="https://github.com/user-attachments/assets/f6612cd3-61d4-4436-9ad3-a633d929624f" />
 
-![Blackjack Game Screenshot](./attached_assets/Blackjack.png)
+A sleek and interactive Blackjack game built with React, featuring a modern UI design with animations and comprehensive game history tracking.
 
 ## Features
 
@@ -64,15 +64,18 @@ A sleek and interactive Blackjack game built with React, featuring a modern UI d
 ## Screenshots
 
 ### Main Game Interface
-![Game Interface](./attached_assets/game-interface.png)
+<img width="900" alt="Blackjack" src="https://github.com/user-attachments/assets/307c721a-bab2-4f3e-bc57-9a65871c0378" />
+
 The main game interface showing the dealer's hand, player's hand, and betting controls.
 
 ### Betting Controls
-![Betting Controls](./attached_assets/betting-controls.png)
+<img width="867" alt="Balance $375" src="https://github.com/user-attachments/assets/f404a7f0-b361-4e48-9e28-4c179425a18b" />
+
 Interactive chip selection with animations and current bet display.
 
 ### Game History
-![Game History](./attached_assets/game-history.png)
+<img width="402" alt="Game History" src="https://github.com/user-attachments/assets/b18e760b-b751-433a-995e-ef9cec922a80" />
+
 Detailed game history panel showing past games and statistics.
 
 ## How to Play
@@ -83,9 +86,6 @@ Detailed game history panel showing past games and statistics.
 4. **View Results**: See if you won, lost, or tied
 5. **Track History**: View your game history in the side panel
 
-## Development
-
-This project is built and hosted on Replit, providing a seamless development experience with instant deployment.
 
 ### Key Files
 
@@ -98,12 +98,7 @@ This project is built and hosted on Replit, providing a seamless development exp
 
 1. Clone the repository
 2. Install dependencies: `npm install`
-3. Start the development server: `npm run dev`
-4. Open `http://localhost:5173` in your browser
+3. Build prohect: `npm run build`
+4. Start the development server: `npm run dev`
+5. Open `http://localhost:3000` in your browser
 
-## Credits
-
-Built with ❤️ using React and modern web technologies. Special thanks to:
-- shadcn/ui for the beautiful component library
-- Framer Motion for smooth animations
-- Lucide React for the icon set
