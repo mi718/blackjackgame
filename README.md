@@ -2,7 +2,7 @@
 
 A sleek and interactive Blackjack game built with React, featuring a modern UI design with animations and comprehensive game history tracking.
 
-![Blackjack Game Screenshot](./attached_assets/Blackjack.png)
+![Blackjack Game Screenshot](/attached_assets/Blackjack.png)
 
 ## Features
 
